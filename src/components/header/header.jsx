@@ -2,9 +2,9 @@
 
 const Header = () => {
 	return (
-		<header className="header">
-			<h1>Fast React Pizza Co.</h1>
-		</header>
+		<div className="header">
+			<h1>🌴 far away 💼</h1>
+		</div>
 	);
 };
 

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
 
 * {
 	box-sizing: inherit;
@@ -16,16 +16,13 @@ html {
 }
 
 body {
-	-webkit-font-smoothing: anitiliased;
-	box-sizing: inherit;
+	// -webkit-font-smoothing: antialiased;
 
-	font-family: "Roboto Mono", sans-serif;
-	color: #252525;
-	font-weight: 400;
-	background-color: #f7f2e9;
-	border-bottom: 1.6rem solid #edc84b;
-	min-height: 100vh;
-	padding: 3.2rem;
-	padding-bottom: 6rem;
+	box-sizing: inherit;
+	font-size: 2.4rem;
+	font-family: sans-serif;
+	color: #5a3e2b;
+	font-family: "Quicksand";
+	font-weight: 500;
 }
 @import "./app/app";

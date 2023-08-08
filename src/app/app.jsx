@@ -1,27 +1,36 @@
-import Footer from "../components/footer/footer";
+import Form from "../components/form/form";
 import Header from "../components/header/header";
-import Menu from "../components/menu/menu";
-import OpenContext from "../context/openContext";
-import pizzaData from "../data/data";
+import PackingList from "../components/packingList/packingList";
+import Stats from "../components/stats/stats";
 import { useState } from "react";
-const App = () => {
-	// console.log(pizzaData);
-	const hour = new Date().getHours();
-	const [openShop, setOpenShop] = useState(false);
 
+const App = () => {
+	const [items, setItems] = useState([]);
+	const handleAddItem = item => {
+		setItems(items => [...items, item]);
+	};
+	const handleDeleteItem = id => {
+		setItems(items => items.filter(item => item.id !== +id));
+	};
+
+	const handleCheck = id => {
+		setItems(items =>
+			items.map(item =>
+				item.id === +id ? { ...item, packed: !item.packed } : item
+			)
+		);
+	};
 	return (
-		<OpenContext.Provider value={openShop}>
-			<div className="app">
-				<Header />
-				<Menu pizzaData={pizzaData} />
-				<Footer
-					hour={hour}
-					onOpen={isOpen => {
-						setOpenShop(isOpen);
-					}}
-				/>
-			</div>
-		</OpenContext.Provider>
+		<div className="app">
+			<Header />
+			<Form handleAddItem={handleAddItem} />
+			<PackingList
+				items={items}
+				handleDeleteItem={handleDeleteItem}
+				handleCheck={handleCheck}
+			/>
+			<Stats items={items}/>
+		</div>
 	);
 };
 
