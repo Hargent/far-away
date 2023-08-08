@@ -20,6 +20,12 @@ const App = () => {
 			)
 		);
 	};
+	const handleClearItems = () => {
+		const confirmed = window.confirm(
+			"Are you sure you want to delete all Items ? "
+		);
+		confirmed && setItems([]);
+	};
 	return (
 		<div className="app">
 			<Header />
@@ -28,8 +34,9 @@ const App = () => {
 				items={items}
 				handleDeleteItem={handleDeleteItem}
 				handleCheck={handleCheck}
+				handleClearItems={handleClearItems}
 			/>
-			<Stats items={items}/>
+			<Stats items={items} />
 		</div>
 	);
 };
